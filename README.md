@@ -1,4 +1,4 @@
-# nerdps1
+# nerdp
 Nerd prompt for bash/ksh/zsh (mksh/ash)
 Light version of [nerdps1](https://github.com/joknarf/nerdps1) local nerd prompt w/o psudo/pssh (as [thefly](https://github.com/joknarf/thefly) is doing plugin teleportation)
 
@@ -12,12 +12,12 @@ on Unix, copy to `~/.fonts` and run `fc-cache -fv` then relaunch your terminal a
 
 ## Installation
 
-* You can install using a plugin manager like sheldon / zgenom ... : plugin joknarf/nerdps1
+* You can install using a plugin manager like sheldon / zgenom ... : plugin joknarf/nerdp
 
-* Or you can activate the nerdps1 prompt directly using:  
+* Or you can activate the nerdp prompt directly using:  
 `$ . <(curl -s https://raw.githubusercontent.com/joknarf/nerdp/main/nerdp)`
 * Or you can get your local copy using:  
-`$ curl -sL -o ~/nerdps1 https://raw.githubusercontent.com/joknarf/nerdp/main/nerdp`  
+`$ curl -sL -o ~/nerdp https://raw.githubusercontent.com/joknarf/nerdp/main/nerdp`  
 then source it in your profile/rcfile:  
 `. ~/nerdp`
 
