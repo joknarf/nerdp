@@ -34,7 +34,7 @@ echo ok |base64 -w 0 >/dev/null 2>&1 && ps1_b64opt="-w0"
 
 #=========
 
-typeset -F SECONDS
+typeset -F2 SECONDS
 function ps1_get_mseconds
 {
     typeset s ms __
@@ -44,9 +44,9 @@ function ps1_get_mseconds
         return
     }
     s=$(LANG=C; echo "$SECONDS")
-    ms=${s#*.}
+    ms=${s#*.} 
+    [ "$ms" = "$s" ] && ms="00"
     ms=${ms:0:2}
-    [ "$ms" ] || ms="00"
     s=${s%.*}
     echo "$s$ms"
 }
