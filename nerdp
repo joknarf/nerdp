@@ -34,16 +34,21 @@ echo ok |base64 -w 0 >/dev/null 2>&1 && ps1_b64opt="-w0"
 
 #=========
 
+typeset -F SECONDS
 function ps1_get_mseconds
 {
-    typeset s __
+    typeset s ms __
     [ -r /proc/uptime ] && [ ! "$ps1_use_seconds" ] && {
         read -r s __ </proc/uptime
         echo "${s/[.]/}"
         return
     }
     s=$(LANG=C; echo "$SECONDS")
-    [[ "$s" = *.??? ]] && s="${s/[.]/}" && echo "${s%?}" || echo "${s}00"
+    ms=${s#*.}
+    ms=${ms:0:2}
+    [ "$ms" ] || ms="00"
+    s=${s%.*}
+    echo "$s$ms"
 }
 
 function ps1_time_cmd
