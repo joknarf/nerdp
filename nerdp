@@ -34,7 +34,7 @@ echo ok |base64 -w 0 >/dev/null 2>&1 && ps1_b64opt="-w0"
 
 #=========
 
-typeset -F2 SECONDS
+typeset -F SECONDS 2>/dev/null
 function ps1_get_mseconds
 {
     typeset s ms __
