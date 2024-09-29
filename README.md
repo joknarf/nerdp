@@ -1,5 +1,5 @@
 # nerdp
-Nerd prompt for bash/ksh/zsh (mksh/ash)
+Nerd prompt for bash/ksh/zsh (mksh/ash)  
 Light version of [nerdps1](https://github.com/joknarf/nerdps1) local nerd prompt w/o psudo/pssh (as [thefly](https://github.com/joknarf/thefly) is doing plugin teleportation)
 
 ## Font for prompt
