@@ -31,10 +31,9 @@ ps1_pfstyle="/auto:exit_status /lblack:elapse /blue:userhost >/auto:git_branch >
 type typeset >/dev/null 2>&1 || alias typeset=local # ash
 [ -x /bin/nawk ] && ps1_awk=nawk || ps1_awk=awk
 echo ok |base64 -w 0 >/dev/null 2>&1 && ps1_b64opt="-w0"
-
+[ "$BB_ASH_VERSION" ] || typeset -F SECONDS
 #=========
 
-typeset -F SECONDS 2>/dev/null
 function ps1_get_mseconds
 {
     typeset s ms __
@@ -44,10 +43,10 @@ function ps1_get_mseconds
         return
     }
     s=$(LANG=C; echo "$SECONDS")
-    ms=${s#*.} 
+    ms="${s#*.}" 
     [ "$ms" = "$s" ] && ms="00"
-    ms=${ms:0:2}
-    s=${s%.*}
+    ms="${ms:0:2}"
+    s="${s%.*}"
     echo "$s$ms"
 }
 
