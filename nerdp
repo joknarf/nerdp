@@ -354,7 +354,7 @@ function ps1_loadavg {
 function ps1_osinfo {
     (
         [ -f /etc/os-release ] && . /etc/os-release || {
-            [ -f /etc/redhat-release ] && ID=$($ps1_awk '{sub("Red","rh", $1);print $1$(NF-1);exit(0);}' /etc/redhat-release)
+            [ -f /etc/redhat-release ] && ID=$($ps1_awk '{sub("Red","rhel", $1);sub("[.].*","",$(NF-1));print $1$(NF-1);exit(0);}' /etc/redhat-release)
         }
         : "${ID:=$(uname -s)}"
         [ "$ID" = "Darwin" ] && ID=$(sw_vers |awk -F':\t*' '$1=="ProductName"{s=$2}$1=="ProductVersion"{v=$2}END{print s v}')
