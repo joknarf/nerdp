@@ -359,10 +359,10 @@ function ps1_osinfo {
         : "${ID:=$(uname -s)}"
         [ "$ID" = "Darwin" ] && ID=$(sw_vers |awk -F':\t*' '$1=="ProductName"{s=$2}$1=="ProductVersion"{v=$2}END{print s v}')
         [ "$ID" = "SunOS" ] && ID=$(uname -r) && ID="solaris${ID#*.}"
-        ps1_osinfo="${ID%%.*}"
+        ID="${ID%%.*}"
         MAIN_VERSION_ID="${VERSION_ID%%.*}"
-        [ ${#MAIN_VERSION_ID} -le 3 ] && ps1_osinfo="$ps1_osinfo${MAIN_VERSION_ID}"
-        echo "$ps1_osinfo" | tr '[A-Z]' '[a-z]'
+        [ ${#MAIN_VERSION_ID} -le 3 ] && ID="$ID$MAIN_VERSION_ID"
+        echo "$ID" | tr '[A-Z]' '[a-z]'
     )
 }
 
