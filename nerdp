@@ -352,15 +352,18 @@ function ps1_loadavg {
 }
 
 function ps1_osinfo {
-    [ -f /etc/os-release ] && . /etc/os-release || {
-        [ -f /etc/redhat-release ] && ID=$($ps1_awk '{sub("Red","rh", $1);print $1$(NF-1);exit(0);}' /etc/redhat-release)
-    }
-    : "${ID:=$(uname -s)}"
-    [ "$ID" = "Darwin" ] && ID=$(sw_vers |awk -F':\t*' '$1=="ProductName"{s=$2}$1=="ProductVersion"{v=$2}END{print s v}')
-    [ "$ID" = "SunOS" ] && ID=$(uname -r) && ID="solaris${ID#*.}"
-    ps1_osinfo="${ID%%.*}"
-    MAIN_VERSION_ID=${VERSION_ID%%.*}
-    [ ${#MAIN_VERSION_ID} -le 3 ] && ps1_osinfo="$ps1_osinfo${VERSION_ID%%.*}"
+    (
+        [ -f /etc/os-release ] && . /etc/os-release || {
+            [ -f /etc/redhat-release ] && ID=$($ps1_awk '{sub("Red","rh", $1);print $1$(NF-1);exit(0);}' /etc/redhat-release)
+        }
+        : "${ID:=$(uname -s)}"
+        [ "$ID" = "Darwin" ] && ID=$(sw_vers |awk -F':\t*' '$1=="ProductName"{s=$2}$1=="ProductVersion"{v=$2}END{print s v}')
+        [ "$ID" = "SunOS" ] && ID=$(uname -r) && ID="solaris${ID#*.}"
+        ps1_osinfo="${ID%%.*}"
+        MAIN_VERSION_ID=${VERSION_ID%%.*}
+        [ ${#MAIN_VERSION_ID} -le 3 ] && ps1_osinfo="$ps1_osinfo${MAIN_VERSION_ID}"
+        echo $ps1_osinfo
+    )
 }
 
 function ps1_venv {
@@ -463,7 +466,7 @@ function ps1_display
 # create powerline prompt
 function ps1_set {
     VIRTUAL_ENV_DISABLE_PROMPT=1
-    ps1_osinfo
+    ps1_osinfo="$(ps1_osinfo)"
     if [ "$BASH" ];then
         shopt -s checkwinsize 2>/dev/null
         : "${PROMPT_DIRTRIM:=5}"
