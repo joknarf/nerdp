@@ -362,7 +362,7 @@ function ps1_osinfo {
         ps1_osinfo="${ID%%.*}"
         MAIN_VERSION_ID=${VERSION_ID%%.*}
         [ ${#MAIN_VERSION_ID} -le 3 ] && ps1_osinfo="$ps1_osinfo${MAIN_VERSION_ID}"
-        echo $ps1_osinfo
+        echo "$ps1_osinfo" | tr '[A-Z]' '[a-z]'
     )
 }
 
