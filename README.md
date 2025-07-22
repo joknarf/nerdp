@@ -26,6 +26,7 @@ then source it in your profile/rcfile:
 
 
 Following information displayed:
+
 * exit code if command returns code is not 0
 * elapse time during command if command lasts more than 1s (bash / zsh / ksh >2012)
 * user@hostname
@@ -57,16 +58,19 @@ usage: ps1_display <option>
 ## Customizing prompt
 
 You can add informations on the prompt using ps1_info variable:  
+
 * `ps1_info="MYVAR MYVAR2..."` : will display content of variables
 * `ps1_info="(myfunc) (myfunc2)"` : will display output of functions myfunc myfunc2
 
 You can add custom colorized segment defining `ps1_addon()` function:
+
 * `ps1_addon() { pgrep rsyslogd >/dev/null || echo 'red:syslog'; }`
 output format of function:
   `<bgcolor>[/<fgcolor>/<sepcolor>]:<message>[|message]`
 empty output discards the segment.
 
-Changing prompt powerline, ps1_powerline variable represents the prompt:  
+Changing prompt powerline, ps1_powerline variable represents the prompt:
+
 *  segment setting : `symbol/bgcolor/fgcolor/sepcolor:function`
     * function called is `ps1_function` (ps1_ prefixed)
     * colors : `black red green yellow blue magenta cyan white`, prefix `l` for light color
