@@ -26,14 +26,18 @@ The following information is displayed:
 ## Install
 
 * You can install using a plugin manager like sheldon / zgenom or the best [thefly](https://github.com/joknarf/thefly) : plugin joknarf/nerdp
-`fly add joknarf/nerdp`
+```
+fly add joknarf/nerdp
+```
 * Or you can get your local copy and source in your rc file:  
 ```
 curl -sL -o ~/nerdp https://raw.githubusercontent.com/joknarf/nerdp/main/nerdp
 . ~/nerdp
 ```
 * To test it you can activate the nerdp prompt directly using:  
-`$ . <(curl -s https://raw.githubusercontent.com/joknarf/nerdp/main/nerdp)`
+```
+. <(curl -s https://raw.githubusercontent.com/joknarf/nerdp/main/nerdp)
+```
 
 ## Font for prompt
 
