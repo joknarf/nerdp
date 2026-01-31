@@ -91,28 +91,11 @@ Changing prompt powerline, ps1_powerline variable represents the prompt:
 * `ps1_powerline="auto:exit_status blue:userhost >/auto:git_branch >/lblack:cwd > | </lblue/black/blue:info </auto:freemem </blue:time"`
 ![image](https://github.com/joknarf/nerdps1/assets/10117818/f5d3bc4e-cf65-4889-af5b-817445575ef7)
 
-## color theme example
-used terminal colors in example:
-```json
-        {
-            "name": "NerdPS1",
-            "background": "#000000",
-            "foreground": "#D3D7CF",
-            "black": "#000000",
-            "blue": "#2760AA",
-            "cyan": "#06989A",
-            "green": "#088A5B",
-            "purple": "#4c3d80",
-            "red": "#BA1611",
-            "white": "#D3D7CF",
-            "yellow": "#CF8700",
-            "brightBlack": "#243C4F",
-            "brightBlue": "#729FCF",
-            "brightCyan": "#34E2E2",
-            "brightGreen": "#59c566",
-            "brightPurple": "#AD7FA8",
-            "brightRed": "#EF2929",
-            "brightWhite": "#EEEEEC",
-            "brightYellow": "#FCE94F"
-        }
-```
+## Customizing colors
+
+colors are defined with `$ps1_col` / `$ps1_lcol` variables, and can be overridden, if `$ps1_col` is empty will use 16 default terminal colors.
+
+* `ps1_col` : 8 RGB colors codes corresponding to names: black red green yellow blue magenta cyan white
+  * default: `"20;25;25 160;0;0 36;114;67 175;138;27 30;90;180 55;35;126 41;98;114 204;204;204"`
+* `ps1_lcol` : 8 RGB colors cores corresponding to name: lblack lred lgreen lyellow lblue lmagenta lcyan lwhite
+  * default: `"32;64;64 252;78;110 24;237;147 222;220;18 118;141;255 255;126;128 142;221;244 238;238;238"`
