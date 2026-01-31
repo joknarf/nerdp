@@ -97,5 +97,5 @@ colors are defined with `$ps1_col` / `$ps1_lcol` variables, and can be overridde
 
 * `ps1_col` : 8 RGB colors codes corresponding to names: black red green yellow blue magenta cyan white
   * default: `"20;25;25 160;0;0 36;114;67 175;138;27 30;90;180 55;35;126 41;98;114 204;204;204"`
-* `ps1_lcol` : 8 RGB colors cores corresponding to name: lblack lred lgreen lyellow lblue lmagenta lcyan lwhite
+* `ps1_lcol` : 8 RGB colors cores corresponding to names: lblack lred lgreen lyellow lblue lmagenta lcyan lwhite
   * default: `"32;64;64 252;78;110 24;237;147 222;220;18 118;141;255 255;126;128 142;221;244 238;238;238"`
