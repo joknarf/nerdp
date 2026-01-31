@@ -7,7 +7,7 @@
 ps1_loaded=1
 
 # RGB custom colors: black red green yellow blue magenta cyan white
-: ${ps1_col:="20;25;25  160;0;0  36;114;67  175;138;27  30;90;180  55;35;126  41;98;114  204;204;204"}
+: ${ps1_col:="0;0;0  160;0;0  36;114;67  175;138;27  30;90;180  55;35;126  41;98;114  204;204;204"}
 : ${ps1_lcol:="32;64;64   252;78;110  24;237;147  222;220;18  118;141;255 255;126;128 142;221;244 238;238;238"}
 ps1_nfstyle="(/auto:exit_status (/lblack:elapse (/blue:userhost )/auto:git_branch )/lblack:cwd > | (/lblue/black/blue:info (/auto:addon (/magenta/white:venv (/auto:dfcheck (/auto:loadavg (/auto:freemem (/blue:time )"
 ps1_nfstyle2="(/auto:exit_status (/lblack:elapse (/blue:userhost )/lblack:cwd >/auto:git_branch > | (/lblue/black/blue:info (/auto:addon (/magenta/white:venv (/auto:dfcheck (/auto:loadavg (/auto:freemem (/blue:time )"
